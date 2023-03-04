@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import Carousel from "./Carousel";
 const HeroBanner = () => {
   return (
@@ -8,7 +8,7 @@ const HeroBanner = () => {
       <Typography fontSize="22px" lineHeight="35px" mb={4}>Check out the most effective exercises</Typography>
       <Button variant="contained" color="error" href="#exercises" sx={{backgroundColor:'#ff2625', padding:"12px"}}>EXPLORE EXERCISES</Button>
       {/* may need change to display none intead of opacity 0-- check befor deploy */}
-      <Typography mt={8} fontWeight={600} color="#ff2625" fontSize="200px" sx={{ opacity:{ lg: "0.15", xs: "0"}}}>Exercise</Typography>
+      <Typography className="heroTitle">Exercise</Typography>
       <div className="hero-banner-img"><Carousel/></div>
       
     </Box>
