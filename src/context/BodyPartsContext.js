@@ -1,8 +1,10 @@
 import { createContext, useReducer } from "react"
-
+// use this data before deploy to avoid reching RAPID API limlitation befor deploy(remove before deploy and use fetching data from rapid api again)
+import { bodyPartsDataTest } from "../data";
 
 const INITIAL_STATE = {
-    bodyParts: [],
+    bodyParts: bodyPartsDataTest,
+    // bodyParts: [],
     loading: false,
     error: null
 }
