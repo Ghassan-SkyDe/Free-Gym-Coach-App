@@ -1,24 +1,28 @@
+import { Stack } from "@mui/material";
 import { Box } from "@mui/system";
 import { useContext } from "react";
-import { BodyPartsContext } from "../context/bodyParts";
+import { BodyPartsContext } from "../context/BodyPartsContext";
 import BodyPart from "./BodyPart";
 
-const HorizontalScrollbar = ({ data }) => {
+const HorizontalScrollbar = () => {
     const { bodyParts, loading, error } = useContext(BodyPartsContext);
-    console.log(`from scroll ${bodyParts}`);
   return (
-    <div>
-        {data?.map((item) => (
+    <Stack className="vertical-scroll" direction="row" sx={{overflowX:"scroll",overflowY:"hidden",padding:"1rem 0"}}>
+        {/* temperary-replace with circular loading and error alert */}
+        {error && <h2>{error.message}</h2>}
+        {loading && <h2>Loading...</h2>}
+        {bodyParts?.map((item) => (
             <Box
              key={item.id || item}
              itemID={item.id || item}
              title={item.id || item}
-             m="0 40px" 
+             m="0 40px"
+             flexDirection='row' 
             >
-                <BodyPart/>
+                <BodyPart item={item}/>
             </Box>
         ))}
-    </div>
+    </Stack>
   )
 }
 

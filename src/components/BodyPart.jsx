@@ -1,7 +1,22 @@
+// import { Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { Stack } from "@mui/system";
+import { useContext } from "react";
+import icon from "../assets/icons/gymClass.svg";
+import { SelectedBodyPartContext } from "../context/SelectedBodyPartContext";
 
-const BodyPart = () => {
+const BodyPart = ({ item }) => {
+  const { selectedBodyPart, dispatchSelectedBodyPart } = useContext(SelectedBodyPartContext);
+  const handleSelectedBodyPart = () => {
+    dispatchSelectedBodyPart({type:"SET_SELECTED_BODY_PART",payload: item});
+    window.scrollTo({top: 2000, behavior: "smooth"});
+  }
   return (
-    <div>BodyPart</div>
+    <Stack onClick={handleSelectedBodyPart} type="button" alignItems="center" justifyContent="center"
+     className={`bodyPart-card ${selectedBodyPart === item ? "selected" : ""}`} >
+      <img src={icon} alt="gym class icon" width="50px" height="auto"/>
+      <Typography fontSize="24px" fontWeight="bold" color="#3A1212" textTransform="capitalize">{item}</Typography>
+    </Stack>
   )
 }
 

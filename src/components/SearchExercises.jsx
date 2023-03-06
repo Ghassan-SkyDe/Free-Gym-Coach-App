@@ -1,7 +1,7 @@
 import { Box, Button, TextField, Typography } from "@mui/material"
 import { Stack } from "@mui/system"
 import { useContext, useEffect, useState } from "react"
-import { BodyPartsContext } from "../context/bodyParts";
+import { BodyPartsContext } from "../context/BodyPartsContext";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
@@ -11,20 +11,23 @@ const BODY_PARTS_EXERCISES_URL = 'https://exercisedb.p.rapidapi.com/exercises/bo
 const SearchExercises = () => {
   const [search,setSearch] = useState('');
   const [exercises, setExercises] = useState([]);
-  const [bodyParts, setBodyParts] = useState([]);
-  const {dispatchBodyParts} = useContext(BodyPartsContext);
+  const { dispatchBodyParts } = useContext(BodyPartsContext);
 
   useEffect(() => {
     const fetchExercises = async () => {
-      const bodyPartsData = await fetchData(BODY_PARTS_EXERCISES_URL, exerciseOptions);
-      dispatchBodyParts({type:"GET_BODY_PARTS_SUCCESS",payload:["all",...bodyPartsData]});
+      
+      dispatchBodyParts({type:"GET_BODY_PARTS_START"});
+      try {
+        const bodyPartsData = await fetchData(BODY_PARTS_EXERCISES_URL, exerciseOptions);
+        dispatchBodyParts({type:"GET_BODY_PARTS_SUCCESS",payload:["all",...bodyPartsData]});
 
-      setBodyParts(["all", ...bodyPartsData]);
+      } catch (err) {
+        dispatchBodyParts({type:"GET_BODY_PARTS_FAILURE",payload: err})
+      }
     }
 
     fetchExercises();
-    console.log(bodyParts);
-  }, []);
+  }, [dispatchBodyParts]);
 
   const handleChange = (e) => {
     setSearch(e.target.value.toLowerCase());
@@ -71,7 +74,7 @@ const SearchExercises = () => {
       </Box>
 
       <Box sx={{ position: "relative", width: "100%", p: "20px"}}>
-        <HorizontalScrollbar data={bodyParts}/>
+        <HorizontalScrollbar/>
       </Box>
     </Stack>
   )

@@ -10,9 +10,9 @@ body {
 
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 .right-arrow,
 .left-arrow {
@@ -93,7 +93,15 @@ body {
 
 .bodyPart-card {
   transform: scale(1, 1);
-  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 270px;
+  height: 280px;
+  gap: 47px;
+}
+.bodyPart-card.selected {
+  border-top: 3px solid #2f9b55;
+  background-color: #fff;
 }
 
 .exercise-card:hover,
@@ -157,4 +165,30 @@ body {
   .exercise-card {
     width: 280px;
   }
+}
+
+
+
+
+/* vertical wscroll */
+.vertical-scroll::-webkit-scrollbar {
+  width: 2em;
+  height: 0.5em;
+  cursor: pointer;
+}
+
+.vertical-scroll::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 80%);
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+
+.vertical-scroll::-webkit-scrollbar-thumb {
+  background: hsla(3, 97%, 45%, 0.671);
+  border: 0.25em solid hsl(14, 98%, 47%);
+  border-radius: 100vw;
+}
+
+.vertical-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 79%, 41%);
 }
