@@ -1,13 +1,14 @@
 body {
   font-family: 'Josefin Sans';
   background-color: #FFFAFB;
+  
 }
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-
+  scroll-behavior: smooth;
 }
 
 /* ::-webkit-scrollbar {
@@ -78,13 +79,24 @@ body {
   background: #fff;
   border-top: 4px solid #FF2625;
   border-bottom-left-radius: 20px;
-  text-decoration: none;
+  text-decoration: none!important;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   padding-bottom: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+}
+
+.exercise-btn{
+  margin-left: 21px!important;
+  color: #fff!important;
+  font-size: 14px;
+  border-radius: 20px!important;
+  text-transform: capitalize;
+}
+.exercise-btn:hover{
+  color: #16bd48!important;
 }
 
 .exercise-card img {
@@ -95,13 +107,24 @@ body {
   transform: scale(1, 1);
   cursor: pointer;
   padding: 0.5rem;
-  width: 270px;
-  height: 280px;
-  gap: 47px;
+  width: 170px;
+  height: 180px;
+  gap: 25px;
 }
 .bodyPart-card.selected {
   border-top: 3px solid #2f9b55;
   background-color: #fff;
+}
+
+@media screen and (min-width:1200px) {
+  .bodyPart-card {
+      transform: scale(1, 1);
+      cursor: pointer;
+      padding: 0.5rem;
+      width: 270px;
+      height: 280px;
+      gap: 47px;
+    }
 }
 
 .exercise-card:hover,
@@ -124,6 +147,7 @@ body {
 }
 
 @media screen and (max-width:1200px) {
+  
 
   /* ----- */
   .heroTitle{

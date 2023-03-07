@@ -16,8 +16,8 @@ const HorizontalScrollbar = () => {
              key={item.id || item}
              itemID={item.id || item}
              title={item.id || item}
-             m="0 40px"
              flexDirection='row' 
+             sx={{margin: {xs: "0 20px", md: "0 40px"}}}
             >
                 <BodyPart item={item}/>
             </Box>

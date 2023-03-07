@@ -9,7 +9,10 @@ const BodyPart = ({ item }) => {
   const { selectedBodyPart, dispatchSelectedBodyPart } = useContext(SelectedBodyPartContext);
   const handleSelectedBodyPart = () => {
     dispatchSelectedBodyPart({type:"SET_SELECTED_BODY_PART",payload: item});
-    window.scrollTo({top: 2000, behavior: "smooth"});
+
+    if(window.innerWidth >= 1200) window.scrollTo({top: 1900, behavior: "smooth"});
+    else window.scrollTo({top: 1300, behavior: "smooth"});
+    
   }
   return (
     <Stack onClick={handleSelectedBodyPart} type="button" alignItems="center" justifyContent="center"
