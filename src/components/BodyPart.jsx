@@ -1,16 +1,17 @@
-// import { Typography } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useContext } from "react";
 import icon from "../assets/icons/gymClass.svg";
-import { SelectedBodyPartContext } from "../context/SelectedBodyPartContext";
+import { ExerciseContext } from "../context/ExerciseContext";
 import { autoScroll } from "../utils/autoScroll";
 
 const BodyPart = ({ item }) => {
-  const { selectedBodyPart, dispatchSelectedBodyPart } = useContext(SelectedBodyPartContext);
+  const { selectedBodyPart, dispatch, allExercises } = useContext(ExerciseContext);
   const handleSelectedBodyPart = () => {
-    // filtering for results should add----fixIt
-    dispatchSelectedBodyPart({type:"SET_SELECTED_BODY_PART",payload: item});
+    const selectedExercises = item === "all" ? allExercises : allExercises.filter((exercise) => exercise.bodyPart?.toLowerCase().includes(item));
+    dispatch({type:"SET_SELECTED_BODY_PART",payload: item});
+    dispatch({type:"SET_RESULT_TITLE",payload: item});
+    dispatch({type:"SET_RESULT_EXERCISES",payload: selectedExercises});
     // scrolls to top: xs:1300 md:1900
     autoScroll();
     

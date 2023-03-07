@@ -73,6 +73,10 @@ body {
   opacity: 0.15;
 }
 
+.hero-btn:hover{
+  color: #fff;
+}
+
 .exercise-card {
   width: 400px;
   height: 445px;

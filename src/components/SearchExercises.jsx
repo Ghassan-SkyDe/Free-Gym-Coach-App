@@ -1,8 +1,10 @@
 import { Box, Button, TextField, Typography } from "@mui/material"
 import { Stack } from "@mui/system"
 import { useContext, useEffect, useState } from "react"
-import { BodyPartsContext } from "../context/BodyPartsContext";
-import { ExercisesContext } from "../context/ExercisesContext";
+// import { BodyPartsContext } from "../context/BodyPartsContext";
+import { ExerciseContext } from "../context/ExerciseContext";
+// import { ExercisesContext } from "../context/ExercisesContext";
+import { autoScroll } from "../utils/autoScroll";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
@@ -11,52 +13,59 @@ const BODY_PARTS_EXERCISES_URL = 'https://exercisedb.p.rapidapi.com/exercises/bo
 
 const SearchExercises = () => {
   const [search,setSearch] = useState('');
-  const { dispatchBodyParts } = useContext(BodyPartsContext);
-  const { dispatchExercises, exercises } = useContext(ExercisesContext);
+  // const { dispatchBodyParts } = useContext(BodyPartsContext);
+  // replace this---fixIt
+  // const { dispatchExercises } = useContext(ExercisesContext);
+  const { dispatch, allExercises, bodyPartsLoading, allExercisesLoading, bodyPartsError, allExercisesError } = useContext(ExerciseContext);
 
   useEffect(() => {
 
+    // catch dosent work --fixIt
+    
     const fetchBodyParts = async () => {
-      dispatchBodyParts({type:"GET_BODY_PARTS_START"});
+      dispatch({type:"GET_BODY_PARTS_START"});
       try {
         const bodyPartsData = await fetchData(BODY_PARTS_EXERCISES_URL, exerciseOptions);
-        console.log(JSON.stringify(bodyPartsData));
-        dispatchBodyParts({type:"GET_BODY_PARTS_SUCCESS",payload:["all",...bodyPartsData]});
+        dispatch({type:"GET_BODY_PARTS_SUCCESS",payload:["all",...bodyPartsData]});
       } catch (err) {
-        dispatchBodyParts({type:"GET_BODY_PARTS_FAILURE",payload: err})
+        dispatch({type:"GET_BODY_PARTS_FAILURE",payload: err})
       }
     }
 
     const fetchExercises = async () => {
-      dispatchExercises({type:"GET_EXERCISES_START"});
+      dispatch({type:"GET_EXERCISES_START"});
       try {
         const exercisesData = await fetchData(ALL_EXERCISES_URL, exerciseOptions);
-        dispatchExercises({type:"GET_EXERCISES_SUCCESS",payload:exercisesData});
+        dispatch({type:"GET_EXERCISES_SUCCESS",payload:exercisesData});
       } catch (err) {
-        dispatchExercises({type:"GET_EXERCISES_FAILURE",payload: err})
+        dispatch({type:"GET_EXERCISES_FAILURE",payload: err})
+        console.log("its meeeeeeeeeeeeeee");
       }
     }
 
     // fetchBodyParts();
     // fetchExercises();
-  }, [dispatchBodyParts,dispatchExercises]);
+  }, [dispatch]);
 
   const handleChange = (e) => {
     setSearch(e.target.value.toLowerCase());
   }
 
   const handleSearch = async () => {
+    // move to reducers--fixIt
     if(search) {
-      const searchedExercises = exercises.filter(
+      const searchedExercises = allExercises.filter(
       (exercise) => exercise.name?.toLowerCase().includes(search)
       || exercise.target?.toLowerCase().includes(search)
       || exercise.equipment?.toLowerCase().includes(search)
-      || exercise.bodypart?.toLowerCase().includes(search)
+      || exercise.bodyPart?.toLowerCase().includes(search)
       );
-
+      dispatch({type:"SET_RESULT_TITLE", payload: search});
       setSearch("");
       // should fixed---------------------------------in CONTEXT-------------fixIt
-      dispatchExercises({type:"SET_EXERCISES",payload: searchedExercises});
+      dispatch({type: "SET_RESULT_EXERCISES", payload: searchedExercises});
+      // dispatchExercises({type:"SET_EXERCISES",payload: searchedExercises});
+      autoScroll();
     }else return;
   }
 
