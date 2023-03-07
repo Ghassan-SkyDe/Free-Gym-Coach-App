@@ -4,14 +4,15 @@ import { Stack } from "@mui/system";
 import { useContext } from "react";
 import icon from "../assets/icons/gymClass.svg";
 import { SelectedBodyPartContext } from "../context/SelectedBodyPartContext";
+import { autoScroll } from "../utils/autoScroll";
 
 const BodyPart = ({ item }) => {
   const { selectedBodyPart, dispatchSelectedBodyPart } = useContext(SelectedBodyPartContext);
   const handleSelectedBodyPart = () => {
+    // filtering for results should add----fixIt
     dispatchSelectedBodyPart({type:"SET_SELECTED_BODY_PART",payload: item});
-
-    if(window.innerWidth >= 1200) window.scrollTo({top: 1900, behavior: "smooth"});
-    else window.scrollTo({top: 1300, behavior: "smooth"});
+    // scrolls to top: xs:1300 md:1900
+    autoScroll();
     
   }
   return (

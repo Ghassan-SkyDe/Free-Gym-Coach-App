@@ -55,6 +55,7 @@ const SearchExercises = () => {
       );
 
       setSearch("");
+      // should fixed---------------------------------in CONTEXT-------------fixIt
       dispatchExercises({type:"SET_EXERCISES",payload: searchedExercises});
     }else return;
   }
