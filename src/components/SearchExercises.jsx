@@ -16,7 +16,7 @@ const SearchExercises = () => {
   // const { dispatchBodyParts } = useContext(BodyPartsContext);
   // replace this---fixIt
   // const { dispatchExercises } = useContext(ExercisesContext);
-  const { dispatch, allExercises, bodyPartsLoading, allExercisesLoading, bodyPartsError, allExercisesError } = useContext(ExerciseContext);
+  const { dispatch, allExercises } = useContext(ExerciseContext);
 
   useEffect(() => {
 
