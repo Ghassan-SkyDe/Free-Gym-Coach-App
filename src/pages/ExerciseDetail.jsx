@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Details, ExerciseVideos, SimilarExercises } from "../components";
 import { ExerciseContext } from "../context/ExerciseContext";
+import { autoScroll } from "../utils/autoScroll";
 import { fetchData, youtubeOptions } from "../utils/fetchData";
 // import { exerciseOptions, fetchData } from "../utils/fetchData";
 
@@ -16,7 +17,7 @@ const ExerciseDetail = () => {
   const { allExercises } = useContext(ExerciseContext);
   
   useEffect(() => {
-
+    autoScroll("toTop");
     // fetch online just one exercise-------------approach(1)
     // const fetchExercisesData = async () => {
     //   const exerciseDetailData = await fetchData(`${exerciseDbUrl}/${id}`, exerciseOptions);

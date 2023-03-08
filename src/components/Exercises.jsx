@@ -19,7 +19,7 @@ const Exercises = () => {
   const handlePagination = (e,value) => {
     setCurrentPage(value);
     // scrolls to top: xs:1300 md:1900
-    autoScroll();
+    autoScroll("toResults");
   }
 
   return (

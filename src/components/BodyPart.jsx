@@ -13,7 +13,7 @@ const BodyPart = ({ item }) => {
     dispatch({type:"SET_RESULT_TITLE",payload: item});
     dispatch({type:"SET_RESULT_EXERCISES",payload: selectedExercises});
     // scrolls to top: xs:1300 md:1900
-    autoScroll();
+    autoScroll("toResults");
     
   }
   return (

@@ -65,7 +65,7 @@ const SearchExercises = () => {
       // should fixed---------------------------------in CONTEXT-------------fixIt
       dispatch({type: "SET_RESULT_EXERCISES", payload: searchedExercises});
       // dispatchExercises({type:"SET_EXERCISES",payload: searchedExercises});
-      autoScroll();
+      autoScroll("toResults");
     }else return;
   }
 
