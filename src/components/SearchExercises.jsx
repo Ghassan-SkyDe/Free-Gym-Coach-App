@@ -1,57 +1,20 @@
-import { Box, Button, TextField, Typography } from "@mui/material"
+import { Alert, Box, Button, TextField, Typography } from "@mui/material"
 import { Stack } from "@mui/system"
-import { useContext, useEffect, useState } from "react"
-// import { BodyPartsContext } from "../context/BodyPartsContext";
+import { useContext, useState } from "react"
 import { ExerciseContext } from "../context/ExerciseContext";
-// import { ExercisesContext } from "../context/ExercisesContext";
 import { autoScroll } from "../utils/autoScroll";
-import { exerciseOptions, fetchData } from "../utils/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
-
-const ALL_EXERCISES_URL = 'https://exercisedb.p.rapidapi.com/exercises';
-const BODY_PARTS_EXERCISES_URL = 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList';
+import Loader from "./Loader";
 
 const SearchExercises = () => {
   const [search,setSearch] = useState('');
-  // const { dispatchBodyParts } = useContext(BodyPartsContext);
-  // replace this---fixIt
-  // const { dispatchExercises } = useContext(ExercisesContext);
-  const { dispatch, allExercises } = useContext(ExerciseContext);
-
-  useEffect(() => {
-
-    // catch dosent work --fixIt
-    
-    const fetchBodyParts = async () => {
-      dispatch({type:"GET_BODY_PARTS_START"});
-      try {
-        const bodyPartsData = await fetchData(BODY_PARTS_EXERCISES_URL, exerciseOptions);
-        dispatch({type:"GET_BODY_PARTS_SUCCESS",payload:["all",...bodyPartsData]});
-      } catch (err) {
-        dispatch({type:"GET_BODY_PARTS_FAILURE",payload: err})
-      }
-    }
-
-    const fetchExercises = async () => {
-      dispatch({type:"GET_EXERCISES_START"});
-      try {
-        const exercisesData = await fetchData(ALL_EXERCISES_URL, exerciseOptions);
-        dispatch({type:"GET_EXERCISES_SUCCESS",payload:exercisesData});
-      } catch (err) {
-        dispatch({type:"GET_EXERCISES_FAILURE",payload: err})
-        console.log("its meeeeeeeeeeeeeee");
-      }
-    }
-
-    // fetchBodyParts();
-    // fetchExercises();
-  }, [dispatch]);
+  const { dispatch, allExercises, bodyParts, bodyPartsLoading, bodyPartsError } = useContext(ExerciseContext);
 
   const handleChange = (e) => {
     setSearch(e.target.value.toLowerCase());
   }
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
     // move to reducers--fixIt
     if(search) {
       const searchedExercises = allExercises.filter(
@@ -64,7 +27,6 @@ const SearchExercises = () => {
       setSearch("");
       // should fixed---------------------------------in CONTEXT-------------fixIt
       dispatch({type: "SET_RESULT_EXERCISES", payload: searchedExercises});
-      // dispatchExercises({type:"SET_EXERCISES",payload: searchedExercises});
       autoScroll("toResults");
     }else return;
   }
@@ -75,7 +37,9 @@ const SearchExercises = () => {
       <Typography fontWeight={700} sx={{ fontSize: { lg: '44px', xs: "30px"}}} mb="50px" textAlign="center">Awesome Exercises You <br/> Should Know</Typography>
       
       <Box sx={{ position: "relative", width: "100%", p: "20px"}} mb="75px">
-        <HorizontalScrollbar/>
+        {bodyPartsError && <Alert severity="error">Check your connection and try again!</Alert>}
+        {bodyPartsLoading && <Loader/>}
+        <HorizontalScrollbar data={bodyParts} isBodyPart/>
       </Box>
 
       <Box position="relative" mb="72px">

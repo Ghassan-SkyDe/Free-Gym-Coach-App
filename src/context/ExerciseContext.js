@@ -59,7 +59,7 @@ const ExerciseReducer = (state,action) => {
         case "GET_BODY_PARTS_FAILURE":
             return {
                 ...state,
-                bodyParts:{ ...state.bodyParts, loading:false, error: action.payload }
+                bodyParts:{ ...state.bodyParts, loading: false, error: action.payload }
             }
     
         case "SET_SELECTED_BODY_PART":
