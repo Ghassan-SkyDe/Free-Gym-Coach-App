@@ -1,7 +1,13 @@
-
+import { Box, Stack, Typography } from "@mui/material";
+import Logo from "../assets/images/SportIcon.svg";
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <Box mt="80px" bgcolor="#fff3f4">
+      <Stack gap="40px" alignItems="center" px="40px" pt="24px">
+        <a href="/"><img src={Logo} alt="Logo" width="200px" height="40px"/></a>
+        <Typography> Made by <a href="https://github.com/Sky-De" target="_blank" rel="noreferrer">SkyDe</a></Typography>
+      </Stack>
+    </Box>
   )
 }
 

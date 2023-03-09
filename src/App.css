@@ -203,6 +203,10 @@ body {
 }
 
 
+/* footer */
+
+
+
 
 
 /* vertical wscroll */
@@ -226,4 +230,11 @@ body {
 
 .vertical-scroll::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 79%, 41%);
+}
+
+
+
+.footer {
+  border: 1px solid red !important;
+  background-color: red !important;
 }

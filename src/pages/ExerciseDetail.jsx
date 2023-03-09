@@ -21,7 +21,7 @@ const ExerciseDetail = () => {
   
   
   useEffect(() => {
-    autoScroll("toTop");
+    // use first approach---fixIt
     // fetch online just one exercise/sameTargets/sameBodyParts-------------approach(1)
     // const fetchExercisesData = async () => {
     //   const exerciseDetailData = await fetchData(`${exerciseDbUrl}/${id}`, exerciseOptions);
@@ -54,7 +54,7 @@ const ExerciseDetail = () => {
     fetchExerciseVideosData();
 
   },[id,allExercises])
-
+  autoScroll("toTop");
   return (
     <Box>
       <Details data={ exerciseDetail }/>
