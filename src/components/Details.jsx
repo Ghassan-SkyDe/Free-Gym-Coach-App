@@ -31,7 +31,12 @@ const Details = ({ data }) => {
       sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
     >
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
-      <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
+      <Stack
+        sx={{
+          gap: { lg: "35px", xs: "20px" },
+          maxHeight: "80vh",
+        }}
+      >
         <Typography textTransform="capitalize" variant="h3">
           {name}
         </Typography>
@@ -62,8 +67,8 @@ const Details = ({ data }) => {
                 sx={{
                   background: "#fff2db",
                   borderRadius: "50%",
-                  width: "100px",
-                  height: "100px",
+                  width: "80px",
+                  height: "80px",
                 }}
               >
                 <img

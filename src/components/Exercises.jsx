@@ -29,9 +29,12 @@ const Exercises = () => {
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
       <Typography
-        variant="h3"
+        variant="h4"
         mb="46px"
-        sx={{ textAlign: { xs: "center", sm: "center", lg: "start" } }}
+        sx={{
+          textAlign: { xs: "center", sm: "center", lg: "start" },
+          fontWeight: "bold",
+        }}
       >{`Showing Results ( ${resultTitle} )`}</Typography>
       <Stack
         direction="row"

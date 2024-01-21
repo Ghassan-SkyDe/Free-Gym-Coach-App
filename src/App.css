@@ -49,8 +49,8 @@ body {
 }
 
 .detail-image {
+  max-height: 80vh;
   width: 729px;
-  height: 742px;
 }
 
 .hero-banner-img {
@@ -58,8 +58,9 @@ body {
   right: 0px;
   top: 0px;
   width: 700px;
-  height: 900px;
-  margin-top: -310px;
+  height: 100svh !important;
+  /* border: 4px solid red; */
+  margin-top: -292px;
 }
 
 /* -------- */
@@ -222,4 +223,16 @@ body {
 .footer {
   border: 1px solid red !important;
   background-color: red !important;
+}
+
+.d-block {
+  /* border: 5px solid rgb(7, 196, 234) !important; */
+  max-height: 100vh !important;
+  margin: 0 !important;
+  width: 100%;
+  object-fit: fill;
+}
+
+.carousel {
+  /* border: 5px solid rgb(4, 255, 0) !important; */
 }
