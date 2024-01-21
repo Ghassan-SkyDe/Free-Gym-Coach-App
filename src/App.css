@@ -1,7 +1,6 @@
 body {
-  font-family: 'Josefin Sans';
-  background-color: #FFFAFB;
-  
+  font-family: "Josefin Sans";
+  background-color: #fffafb;
 }
 
 * {
@@ -24,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FF2625;
+  color: #ff2625;
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
@@ -61,19 +60,18 @@ body {
   width: 700px;
   height: 900px;
   margin-top: -310px;
-
 }
 
 /* -------- */
-.heroTitle{
-  margin-top: 64px!important;
-  font-weight: 600!important;
+.heroTitle {
+  margin-top: 64px !important;
+  font-weight: 600 !important;
   color: #ff2625;
-  font-size: 200px!important;
+  font-size: 200px !important;
   opacity: 0.15;
 }
 
-.hero-btn:hover{
+.hero-btn:hover {
   color: #fff;
 }
 
@@ -81,9 +79,9 @@ body {
   width: 400px;
   height: 445px;
   background: #fff;
-  border-top: 4px solid #FF2625;
+  border-top: 4px solid #ff2625;
   border-bottom-left-radius: 20px;
-  text-decoration: none!important;
+  text-decoration: none !important;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -92,15 +90,15 @@ body {
   transition: 0.3s all ease-in-out;
 }
 
-.exercise-btn{
-  margin-left: 21px!important;
-  color: #fff!important;
+.exercise-btn {
+  margin-left: 21px !important;
+  color: #fff !important;
   font-size: 14px;
-  border-radius: 20px!important;
+  border-radius: 20px !important;
   text-transform: capitalize;
 }
-.exercise-btn:hover{
-  color: #16bd48!important;
+.exercise-btn:hover {
+  color: #16bd48 !important;
 }
 
 .exercise-card img {
@@ -120,15 +118,15 @@ body {
   background-color: #fff;
 }
 
-@media screen and (min-width:1200px) {
+@media screen and (min-width: 1200px) {
   .bodyPart-card {
-      transform: scale(1, 1);
-      cursor: pointer;
-      padding: 0.5rem;
-      width: 270px;
-      height: 280px;
-      gap: 47px;
-    }
+    transform: scale(1, 1);
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 270px;
+    height: 280px;
+    gap: 47px;
+  }
 }
 
 .exercise-card:hover,
@@ -137,8 +135,8 @@ body {
 }
 
 .search-btn:hover {
-  color: #FF2625 !important;
-  border: 1px solid #FF2625 !important;
+  color: #ff2625 !important;
+  border: 1px solid #ff2625 !important;
 }
 
 .exercise-video {
@@ -147,30 +145,25 @@ body {
   gap: 24px;
   width: 387px;
   height: auto;
-  text-decoration: none!important;
+  text-decoration: none !important;
   background-color: #fff;
   padding-bottom: 25px;
   box-shadow: 0px 0px 5px rgba(41, 41, 41, 0.447);
 }
-.exercise-video:hover{
+.exercise-video:hover {
   box-shadow: 0px 0px 5px rgb(41, 41, 41);
 }
 
-
-@media screen and (max-width:1200px) {
-  
-
+@media screen and (max-width: 1200px) {
   /* ----- */
-  .heroTitle{
+  .heroTitle {
     display: none;
   }
-
 
   .detail-image {
     width: 300px;
     height: 300px;
   }
-
 
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
@@ -193,21 +186,15 @@ body {
     width: 320px;
     height: auto;
   }
-
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width: 400px) {
   .exercise-card {
     width: 280px;
   }
 }
 
-
 /* footer */
-
-
-
-
 
 /* vertical wscroll */
 .vertical-scroll::-webkit-scrollbar {
@@ -231,8 +218,6 @@ body {
 .vertical-scroll::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 79%, 41%);
 }
-
-
 
 .footer {
   border: 1px solid red !important;

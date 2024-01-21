@@ -18,15 +18,14 @@ const ExerciseDetail = () => {
   const [sameBodyPartExercises, setSameBodyPartExercises] = useState([]);
   const { id } = useParams();
   const { allExercises } = useContext(ExerciseContext);
-  
-  
+
   useEffect(() => {
     // use first approach---fixIt
     // fetch online just one exercise/sameTargets/sameBodyParts-------------approach(1)
     // const fetchExercisesData = async () => {
     //   const exerciseDetailData = await fetchData(`${exerciseDbUrl}/${id}`, exerciseOptions);
     //   setExerciseDetail(exerciseDetailData);
-      
+
     //   const sameTargetExercisesData = await fetchData(`${exerciseDbUrl}/exercises/target/${exerciseDetailData.target}`, exerciseOptions);
     //   setSameTargetExercises(sameTargetExercisesData);
 
@@ -34,35 +33,59 @@ const ExerciseDetail = () => {
     //   setSameBodyPartExercises(sameBodyPartExercisesData);
     // }
     // fetchExercisesData();
-    
+
     // find exercise from existing data of allExercises/extraxts other data from allExercises------approach(2)
     const selectedExercise = allExercises.find((item) => item.id === id);
     setExerciseDetail(selectedExercise);
 
-    const sameTargetExercisesData = allExercises.filter((exercise) => exercise.target === selectedExercise.target);
+    const sameTargetExercisesData = allExercises.filter(
+      (exercise) => exercise.target === selectedExercise.target
+    );
     setSameTargetExercises(sameTargetExercisesData);
 
-    const sameBodyPartExercisesData = allExercises.filter((exercise) => exercise.bodyPart === selectedExercise.bodyPart);
+    const sameBodyPartExercisesData = allExercises.filter(
+      (exercise) => exercise.bodyPart === selectedExercise.bodyPart
+    );
     setSameBodyPartExercises(sameBodyPartExercisesData);
 
-    // fetch Related Videos--------------------- 
+    // fetch Related Videos---------------------
     const fetchExerciseVideosData = async () => {
-      const exerciseVideosData = await fetchData(`${youTubeSearchUrl}/search?query=${selectedExercise.name}`, youtubeOptions);
+      const exerciseVideosData = await fetchData(
+        `${youTubeSearchUrl}/search?query=${selectedExercise.name}`,
+        youtubeOptions
+      );
       setExerciseVideos(exerciseVideosData.contents);
-    }
+    };
 
     fetchExerciseVideosData();
-
-  },[id,allExercises])
+  }, [id, allExercises]);
   autoScroll("toTop");
   return (
     <Box>
-      <Details data={ exerciseDetail }/>
-      {exerciseVideos.length ? <ExerciseVideos data={exerciseVideos} name={exerciseDetail.name}/> : <Loader/>}
-      {sameBodyPartExercises.length ? <SimilarExercises data={sameBodyPartExercises} bodyPart={exerciseDetail.bodyPart}/> : <Loader/>}
-      {sameTargetExercises.length ? <SimilarExercises data={sameTargetExercises} target={exerciseDetail.target}/> : <Loader/>}
+      <Details data={exerciseDetail} />
+      {exerciseVideos.length ? (
+        <ExerciseVideos data={exerciseVideos} name={exerciseDetail.name} />
+      ) : (
+        <Loader />
+      )}
+      {sameBodyPartExercises.length ? (
+        <SimilarExercises
+          data={sameBodyPartExercises}
+          bodyPart={exerciseDetail.bodyPart}
+        />
+      ) : (
+        <Loader />
+      )}
+      {sameTargetExercises.length ? (
+        <SimilarExercises
+          data={sameTargetExercises}
+          target={exerciseDetail.target}
+        />
+      ) : (
+        <Loader />
+      )}
     </Box>
-  )
-}
+  );
+};
 
-export default ExerciseDetail
+export default ExerciseDetail;
