@@ -37,7 +37,7 @@ Feel free to give it a start 🌟
 - Horizontal scroll
 - Exercise Gif
 - Categorized exercises
-- 
+  
 ![line]
 
 ## Demo
@@ -50,7 +50,7 @@ Take a look at the live project deployed on Netlify
 
 ## Preview
 
-**----------------------------------------------------------- Desjtop ------------------------------------------------------------------**
+**----------------------------------------------------------- Desktop ------------------------------------------------------------------**
 
 <img src="https://github.com/Sky-De/Free-Gym-Coach-App/assets/79264045/e02285a6-d3c7-4429-9cad-9bda07e1dac4" width="80%">
 
