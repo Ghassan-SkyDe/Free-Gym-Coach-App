@@ -1,4 +1,4 @@
-# Free coach App! 
+# Free Gym Coach App! 
 
 Feel free to give it a start 🌟
 ![line]
