@@ -32,6 +32,7 @@ const Exercises = () => {
         variant="h4"
         mb="46px"
         sx={{
+          fontSize: { xs: "1.6rem", md: "2rem" },
           textAlign: { xs: "center", sm: "center", lg: "start" },
           fontWeight: "bold",
         }}
