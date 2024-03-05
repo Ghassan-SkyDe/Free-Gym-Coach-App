@@ -50,20 +50,6 @@ Take a look at the live project deployed on Netlify
 
 ## Preview
 
-**----------------------------------------------------------- Desktop ------------------------------------------------------------------**
-
-<img src="https://github.com/Sky-De/Free-Gym-Coach-App/assets/79264045/e02285a6-d3c7-4429-9cad-9bda07e1dac4" width="80%">
-
-<img src="https://github.com/Sky-De/Free-Gym-Coach-App/assets/79264045/93b73431-1b0c-4779-a8aa-f1ed42b4280f" width="80%">
-
-<img src="https://github.com/Sky-De/Free-Gym-Coach-App/assets/79264045/f6004fa1-8339-4751-ada5-4eeec26301df" width="80%">
-
-
-**----------------------------------------------------------- Mobile ------------------------------------------------------------------**
-
-<img src="https://github.com/Sky-De/Free-Gym-Coach-App/assets/79264045/681695b8-5c02-4499-aee8-783a3af8fcff" width="270">
-
-
 ![line]
 
 ## About
