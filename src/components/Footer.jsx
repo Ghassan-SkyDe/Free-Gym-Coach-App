@@ -10,8 +10,8 @@ const Footer = () => {
         <Typography>
           {" "}
           Powered by{" "}
-          <a href="https://github.com/Sky-De" target="_blank" rel="noreferrer">
-            SkyDe
+          <a href="https://github.com/Ghassan-SkyDe" target="_blank" rel="noreferrer">
+            Ghassan-SkyDe
           </a>
         </Typography>
       </Stack>

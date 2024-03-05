@@ -93,7 +93,7 @@ Provided step-by-step instructions on how to install and run this project locall
 
 ```bash
 # Clone the repository
-git clone [https://github.com/Sky-De/typescript_mern_app](https://github.com/Sky-De/Free-Gym-Coach-App)
+git clone [https://github.com/Ghassan-SkyDe/typescript_mern_app](https://github.com/Ghassan-SkyDe/Free-Gym-Coach-App)
 
 # Change directory
 cd directory
@@ -112,10 +112,6 @@ npm run start
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 ## Contact
 
-**skyDe**
+**Ghassan-SkyDe**
 
-[LinkedIn](https://www.linkedin.com/in/sky-de-763248228)
-
-[GitHub](https://github.com/Sky-De)
-
-[Twitter](https://twitter.com/SkyDe1991?t=b2SJxGA4wmHwwgxDUUtE8Q&s=09)
+[GitHub](https://github.com/Ghassan-SkyDe)
